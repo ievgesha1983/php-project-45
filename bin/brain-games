@@ -2,4 +2,8 @@
 
 <?php
 
-echo "Welcome to Brain Games!";
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use function BrainGames\Cli\launchWelcomeForm;
+
+launchWelcomeForm();
