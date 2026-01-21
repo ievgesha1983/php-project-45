@@ -8,6 +8,11 @@ install:
 brain-games:
 	./bin/brain-games
 
+# запуск Brain Game "Even Number"
+
+brain-even:
+	./bin/brain-even
+
 # проверка проекта Composer'ом
 
 validate:
