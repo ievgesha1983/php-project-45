@@ -12,3 +12,7 @@ brain-games:
 
 validate:
 	composer validate
+
+# подключение CodeSniffer
+lint:
+	composer exec --verbose phpcs -- --standard=PSR12 src bin
