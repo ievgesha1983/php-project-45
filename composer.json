@@ -8,7 +8,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Hexlet\\Code\\": "src/"
+            "BrainGames\\": "src/"
         }
     },
     "authors": [
@@ -17,5 +17,7 @@
             "email": "ievgesha@mail.ru"
         }
     ],
-    "require": {}
+    "require": {
+        "wp-cli/php-cli-tools": "^0.12.6"
+    }
 }
