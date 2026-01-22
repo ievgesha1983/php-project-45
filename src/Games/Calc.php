@@ -28,15 +28,16 @@ function getRandomExpression(): string
 }
 function launchGameCalc(): void
 {
-    $name = getName();
+    $roundNumbers = 3;
+    $namePlayer = getName();
     line('What is the result of the expression?');
-    for ($i = 0; $i < 3; $i++) {
+    for ($i = 0; $i < $roundNumbers; $i++) {
         [$expression, $correctAnswer] = explode('=', getRandomExpression());
 
         if (!getCorrectAnswer($expression, $correctAnswer)) {
-            line("Let's try again, {$name}!");
+            line("Let's try again, {$namePlayer}!");
             return;
         }
     }
-    line("Congratulations, {$name}!");
+    line("Congratulations, {$namePlayer}!");
 }

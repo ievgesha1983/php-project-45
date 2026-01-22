@@ -12,16 +12,17 @@ function isEval(int $number): bool
 }
 function launchGameEven(): void
 {
-    $name = getName();
+    $roundNumbers = 3;
+    $namePlayer = getName();
     line('Answer "yes" if the number is even, otherwise answer "no".');
-    for ($i = 0; $i < 3; $i++) {
+    for ($i = 0; $i < $roundNumbers; $i++) {
         $randomNumber = rand(1, 100);
         $correctAnswer = isEval($randomNumber) ? 'yes' : 'no';
 
         if (!getCorrectAnswer($randomNumber, $correctAnswer)) {
-            line("Let's try again, {$name}!");
+            line("Let's try again, {$namePlayer}!");
             return;
         }
     }
-    line("Congratulations, {$name}!");
+    line("Congratulations, {$namePlayer}!");
 }
