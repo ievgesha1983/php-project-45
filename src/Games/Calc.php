@@ -5,13 +5,17 @@ namespace BrainGames\Games;
 use function cli\line;
 use function BrainGames\getName;
 use function BrainGames\getCorrectAnswer;
+use function BrainGames\getRandomNumbers;
 
-function getRandomExpression(): string
+function getRandomSing(array $sings): string
 {
-    $sings = ['+', '-', '*'];
-    $arg1 = rand(1, 100);
-    $arg2 = rand(1, 100);
-    $sing = $sings[array_rand($sings)];
+    return $sings[array_rand($sings)];
+}
+
+function getResultOfExpression(array $numbers, string $sing): int
+{
+    $arg1 = $numbers[0];
+    $arg2 = $numbers[1];
     switch ($sing) {
         case '+':
             $answer = $arg1 + $arg2;
@@ -22,9 +26,11 @@ function getRandomExpression(): string
         case '*':
             $answer = $arg1 * $arg2;
             break;
+        default:
+            break;
     }
 
-    return "{$arg1} {$sing} {$arg2}={$answer}";
+    return $answer;
 }
 function launchGameCalc(): void
 {
@@ -32,7 +38,10 @@ function launchGameCalc(): void
     $namePlayer = getName();
     line('What is the result of the expression?');
     for ($i = 0; $i < $roundNumbers; $i++) {
-        [$expression, $correctAnswer] = explode('=', getRandomExpression());
+        $numbers = getRandomNumbers(2);
+        $sing = getRandomSing(['+', '-', '*']);
+        $expression = "{$numbers[0]} {$sing} {$numbers[1]}";
+        $correctAnswer = getResultOfExpression($numbers, $sing);
 
         if (!getCorrectAnswer($expression, $correctAnswer)) {
             line("Let's try again, {$namePlayer}!");
