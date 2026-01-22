@@ -18,6 +18,11 @@ brain-even:
 brain-calc:
 	./bin/brain-calc
 
+# запуск Brain Game "GCD"
+
+brain-gcd:
+	./bin/brain-gcd
+
 # проверка проекта Composer'ом
 
 validate:

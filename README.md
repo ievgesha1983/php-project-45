@@ -12,3 +12,7 @@
 #### Brain-Calc Game. Install and play demo.
 
 [![asciicast](https://asciinema.org/a/7YiFTQbplfkM0rTM.svg)](https://asciinema.org/a/7YiFTQbplfkM0rTM)
+
+#### Brain-GCD Game. Play demo.
+
+[![asciicast](https://asciinema.org/a/4gwMNNpjVTpZRM1e.svg)](https://asciinema.org/a/4gwMNNpjVTpZRM1e)
