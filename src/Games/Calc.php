@@ -1,6 +1,6 @@
 <?php
 
-namespace BrainGames;
+namespace BrainGames\Games;
 
 use function cli\line;
 use function BrainGames\getName;

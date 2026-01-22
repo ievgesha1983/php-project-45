@@ -12,9 +12,9 @@
         },
         "files": [
             "src/Cli.php",
-            "src/GameEven.php",
+            "src/Games/Even.php",
             "src/Engine.php",
-            "src/GameCalc.php"
+            "src/Games/Calc.php"
         ]
     },
     "authors": [
