@@ -5,15 +5,7 @@ namespace BrainGames\Games;
 use function cli\line;
 use function BrainGames\getName;
 use function BrainGames\getCorrectAnswer;
-
-function getRandomNumbers(int $num): array
-{
-    $result = [];
-    for ($i = 0; $i < $num; $i++) {
-        $result[] = rand(1, 100);
-    }
-    return $result;
-}
+use function BrainGames\getRandomNumbers;
 
 function getGcd(array $numbers): int
 {
