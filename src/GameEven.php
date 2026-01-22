@@ -3,27 +3,22 @@
 namespace BrainGames;
 
 use function cli\line;
-use function cli\prompt;
+use function BrainGames\getName;
+use function BrainGames\getCorrectAnswer;
 
 function isEval(int $number): bool
 {
     return $number % 2 === 0;
 }
-function launchEvenNumberGame(): void
+function launchGameEven(): void
 {
-    line('Welcome to the Brain Game!');
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
+    $name = getName();
     line('Answer "yes" if the number is even, otherwise answer "no".');
     for ($i = 0; $i < 3; $i++) {
         $randomNumber = rand(1, 100);
-        $answer = prompt("Question: {$randomNumber}\nYour answer");
         $correctAnswer = isEval($randomNumber) ? 'yes' : 'no';
 
-        if ($correctAnswer === $answer) {
-            line("Correct!");
-        } else {
-            line("'{$answer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'.");
+        if (!getCorrectAnswer($randomNumber, $correctAnswer)) {
             line("Let's try again, {$name}!");
             return;
         }

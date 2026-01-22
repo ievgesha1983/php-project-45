@@ -12,7 +12,8 @@
         },
         "files": [
             "src/Cli.php",
-            "src/EvenNumber.php"
+          "src/GameEven.php",
+            "src/Engine.php"
         ]
     },
     "authors": [
