@@ -4,7 +4,12 @@
     "type": "project",
     "license": "proprietary",
     "bin" : [
-        "bin/brain-games"
+        "bin/brain-calc",
+        "bin/brain-even",
+        "bin/brain-games",
+        "bin/brain-gcd",
+        "bin/brain-prime",
+        "bin/brain-progression"
     ],
     "autoload": {
         "psr-4": {
