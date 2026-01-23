@@ -23,6 +23,11 @@ brain-calc:
 brain-gcd:
 	./bin/brain-gcd
 
+# запуск Brain Game "Progression"
+
+brain-progression:
+	./bin/brain-progression
+
 # проверка проекта Composer'ом
 
 validate:
