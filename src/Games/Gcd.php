@@ -5,14 +5,11 @@ namespace BrainGames\Games;
 use function cli\line;
 use function BrainGames\getName;
 use function BrainGames\getCorrectAnswer;
-use function BrainGames\getRandomNumbers;
 
 use const BrainGames\ROUND_NUMBER;
 
-function getGcd(array $numbers): int
+function getGcd(int $num1, int $num2): int
 {
-    $num1 = $numbers[0];
-    $num2 = $numbers[1];
     while ($num2 !== 0) {
         $remainder = $num1 % $num2;
         $num1 = $num2;
@@ -27,10 +24,11 @@ function launchGameGcd(): void
     $namePlayer = getName();
     line('Find the greatest common divisor of given numbers.');
     for ($i = 0; $i < $roundNumbers; $i++) {
-        $numbers = getRandomNumbers(2);
-        $gcd = getGcd($numbers);
+        $num1 = random_int(1, 100);
+        $num2 = random_int(1, 100);
+        $gcd = getGcd($num1, $num2);
 
-        if (!getCorrectAnswer(join(' ', $numbers), $gcd)) {
+        if (!getCorrectAnswer("{$num1} {$num2}", $gcd)) {
             line("Let's try again, {$namePlayer}!");
             return;
         }

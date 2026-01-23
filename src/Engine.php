@@ -26,11 +26,3 @@ function getCorrectAnswer(int | string $question, int | string $correctAnswer): 
     line("'{$answer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'.");
     return false;
 }
-function getRandomNumbers(int $num, int $min = 1, int $max = 100): array
-{
-    $result = [];
-    for ($i = 0; $i < $num; $i++) {
-        $result[] = random_int($min, $max);
-    }
-    return $result;
-}
