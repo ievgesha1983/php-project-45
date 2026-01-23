@@ -15,7 +15,7 @@ function getName(): string
     return $name;
 }
 
-function getCorrectAnswer(string $question, string $correctAnswer): bool
+function getCorrectAnswer(int | string $question, int | string $correctAnswer): bool
 {
     $answer = prompt("Question: {$question}\nYour answer");
     if ($correctAnswer === $answer) {

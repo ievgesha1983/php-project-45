@@ -14,7 +14,7 @@ function getRandomSing(array $sings): string
     return $sings[array_rand($sings)];
 }
 
-function getResultOfExpression(array $numbers, string $sing): int
+function getResultOfExpression(array $numbers, string $sing): ?int
 {
     $arg1 = $numbers[0];
     $arg2 = $numbers[1];
@@ -29,6 +29,7 @@ function getResultOfExpression(array $numbers, string $sing): int
             $answer = $arg1 * $arg2;
             break;
         default:
+            $answer = null;
             break;
     }
 

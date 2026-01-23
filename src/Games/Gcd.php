@@ -19,7 +19,7 @@ function getGcd(array $numbers): int
         $num2 = $remainder;
     }
 
-    return abs($num1);
+    return $num1;
 }
 function launchGameGcd(): void
 {
