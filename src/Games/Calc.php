@@ -14,10 +14,8 @@ function getRandomSing(array $sings): string
     return $sings[array_rand($sings)];
 }
 
-function getResultOfExpression(array $numbers, string $sing): ?int
+function getResultOfExpression(int $arg1, int $arg2, string $sing): ?int
 {
-    $arg1 = $numbers[0];
-    $arg2 = $numbers[1];
     switch ($sing) {
         case '+':
             $answer = $arg1 + $arg2;
@@ -41,10 +39,11 @@ function launchGameCalc(): void
     $namePlayer = getName();
     line('What is the result of the expression?');
     for ($i = 0; $i < $roundNumbers; $i++) {
-        $numbers = getRandomNumbers(2);
+        $num1 = random_int(1, 100);
+        $num2 = random_int(1, 100);
         $sing = getRandomSing(['+', '-', '*']);
-        $expression = "{$numbers[0]} {$sing} {$numbers[1]}";
-        $correctAnswer = getResultOfExpression($numbers, $sing);
+        $expression = "{$num1} {$sing} {$num2}";
+        $correctAnswer = getResultOfExpression($num1, $num2, $sing) ?? 'Errors';
 
         if (!getCorrectAnswer($expression, $correctAnswer)) {
             line("Let's try again, {$namePlayer}!");
