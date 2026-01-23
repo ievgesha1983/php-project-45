@@ -10,7 +10,8 @@ function getDataForQuestion(array $questionSettings): array
 {
     $min = $questionSettings["num"]["min"];
     $max = $questionSettings["num"]["max"];
-    $randomNumber = (string) random_int($min, $max);
+    $randomNumber = random_int($min, $max);
     $correctAnswer = isEval($randomNumber) ? 'yes' : 'no';
+    $randomNumber = (string) $randomNumber;
     return [$randomNumber, $correctAnswer];
 }

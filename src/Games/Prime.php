@@ -27,8 +27,9 @@ function isPrime(int $num): bool
 
 function getDataForQuestion(array $questionSettings): array
 {
-    $randomNumber = (string) random_int($questionSettings['num']['min'], $questionSettings['num']['max']);
+    $randomNumber = random_int($questionSettings['num']['min'], $questionSettings['num']['max']);
     $correctAnswer = isPrime($randomNumber) ? 'yes' : 'no';
+    $randomNumber = (string) $randomNumber;
 
     return [$randomNumber, $correctAnswer];
 }

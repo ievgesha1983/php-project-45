@@ -33,7 +33,7 @@ function getName(): string
 function getCorrectAnswer(string $question, string $correctAnswer): bool
 {
     $answer = prompt("Question: {$question}\nYour answer");
-    if ((string) $correctAnswer === $answer) {
+    if ($correctAnswer === $answer) {
         line("Correct!");
         return true;
     }
