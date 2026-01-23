@@ -5,7 +5,6 @@ namespace BrainGames\Games;
 use function cli\line;
 use function BrainGames\getName;
 use function BrainGames\getCorrectAnswer;
-use function BrainGames\getRandomNumbers;
 
 use const BrainGames\ROUND_NUMBER;
 
