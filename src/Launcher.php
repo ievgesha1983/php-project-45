@@ -14,7 +14,7 @@ const GAMES_OPTIONS = [
         ]
     ],
     "even" => [
-        "question" => "Answer 'yes' if the number is even, otherwise answer 'no'.",
+        "question" => 'Answer "yes" if the number is even, otherwise answer "no".',
         "roundsNumbers" => 3,
         "questionSettings" => [
             "num" => ["min" => 1, "max" => 100]
@@ -28,7 +28,7 @@ const GAMES_OPTIONS = [
         ]
     ],
     "prime" => [
-        "question" => "Answer 'yes' if given number is prime. Otherwise answer 'no'.",
+        "question" => '"Answer "yes" if given number is prime. Otherwise answer "no"."',
         "roundsNumbers" => 3,
         "questionSettings" => [
             "num" => ["min" => 1, "max" => 100]
