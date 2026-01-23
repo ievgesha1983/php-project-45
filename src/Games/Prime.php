@@ -5,25 +5,29 @@ namespace BrainGames\Games;
 use function cli\line;
 use function BrainGames\getName;
 use function BrainGames\getCorrectAnswer;
+use function BrainGames\getRandomNumbers;
 
 function isPrime(int $num): bool
 {
-    $result = true;
     if ($num < 2) {
-        $result = false;
+        return false;
+    }
+
+    if ($num === 2) {
+        return true;
     }
 
     if ($num % 2 === 0) {
-        $result = false;
+        return false;
     }
 
     for ($divider = 3, $max = sqrt($num); $divider <= $max; $divider += 2) {
         if ($num % $divider === 0) {
-            $result = false;
+            return false;
         }
     }
 
-    return $result;
+    return true;
 }
 
 function launchGamePrime(): void
