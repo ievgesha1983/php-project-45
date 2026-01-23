@@ -7,6 +7,8 @@ use function BrainGames\getName;
 use function BrainGames\getCorrectAnswer;
 use function BrainGames\getRandomNumbers;
 
+use const BrainGames\ROUND_NUMBER;
+
 function getGcd(array $numbers): int
 {
     $num1 = $numbers[0];
@@ -21,7 +23,7 @@ function getGcd(array $numbers): int
 }
 function launchGameGcd(): void
 {
-    $roundNumbers = 3;
+    $roundNumbers = ROUND_NUMBER;
     $namePlayer = getName();
     line('Find the greatest common divisor of given numbers.');
     for ($i = 0; $i < $roundNumbers; $i++) {

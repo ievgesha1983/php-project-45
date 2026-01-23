@@ -7,6 +7,8 @@ use function BrainGames\getName;
 use function BrainGames\getCorrectAnswer;
 use function BrainGames\getRandomNumbers;
 
+use const BrainGames\ROUND_NUMBER;
+
 function getRandomSing(array $sings): string
 {
     return $sings[array_rand($sings)];
@@ -34,7 +36,7 @@ function getResultOfExpression(array $numbers, string $sing): int
 }
 function launchGameCalc(): void
 {
-    $roundNumbers = 3;
+    $roundNumbers = ROUND_NUMBER;
     $namePlayer = getName();
     line('What is the result of the expression?');
     for ($i = 0; $i < $roundNumbers; $i++) {

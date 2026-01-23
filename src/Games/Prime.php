@@ -7,6 +7,8 @@ use function BrainGames\getName;
 use function BrainGames\getCorrectAnswer;
 use function BrainGames\getRandomNumbers;
 
+use const BrainGames\ROUND_NUMBER;
+
 function isPrime(int $num): bool
 {
     if ($num < 2) {
@@ -32,7 +34,7 @@ function isPrime(int $num): bool
 
 function launchGamePrime(): void
 {
-    $roundNumbers = 3;
+    $roundNumbers = ROUND_NUMBER;
     $namePlayer = getName();
     line('Answer "yes" if given number is prime. Otherwise answer "no".');
     for ($i = 0; $i < $roundNumbers; $i++) {

@@ -5,6 +5,8 @@ namespace BrainGames;
 use function cli\line;
 use function cli\prompt;
 
+const ROUND_NUMBER = 3;
+
 function getName(): string
 {
     line('Welcome to the Brain Games!');

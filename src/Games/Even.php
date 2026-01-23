@@ -6,13 +6,15 @@ use function cli\line;
 use function BrainGames\getName;
 use function BrainGames\getCorrectAnswer;
 
+use const BrainGames\ROUND_NUMBER;
+
 function isEval(int $number): bool
 {
     return $number % 2 === 0;
 }
 function launchGameEven(): void
 {
-    $roundNumbers = 3;
+    $roundNumbers = ROUND_NUMBER;
     $namePlayer = getName();
     line('Answer "yes" if the number is even, otherwise answer "no".');
     for ($i = 0; $i < $roundNumbers; $i++) {

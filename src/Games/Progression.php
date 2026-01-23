@@ -6,6 +6,8 @@ use function cli\line;
 use function BrainGames\getName;
 use function BrainGames\getCorrectAnswer;
 
+use const BrainGames\ROUND_NUMBER;
+
 function getProgression(int $length = 10, int $step = 1, int $start = 1): array
 {
     $progression = [];
@@ -16,7 +18,7 @@ function getProgression(int $length = 10, int $step = 1, int $start = 1): array
 }
 function launchGameProgression(): void
 {
-    $roundNumbers = 3;
+    $roundNumbers = ROUND_NUMBER;
     $namePlayer = getName();
     line('What number is missing in the progression?');
     for ($i = 0; $i < $roundNumbers; $i++) {
