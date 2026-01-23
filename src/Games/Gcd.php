@@ -30,7 +30,7 @@ function launchGameGcd(): void
         $numbers = getRandomNumbers(2);
         $gcd = getGcd($numbers);
 
-        if (!getCorrectAnswer(join(', ', $numbers), $gcd)) {
+        if (!getCorrectAnswer(join(' ', $numbers), $gcd)) {
             line("Let's try again, {$namePlayer}!");
             return;
         }
