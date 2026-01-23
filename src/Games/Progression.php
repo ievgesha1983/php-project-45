@@ -21,11 +21,11 @@ function launchGameProgression(): void
     $namePlayer = getName();
     line('What number is missing in the progression?');
     for ($i = 0; $i < $roundNumbers; $i++) {
-        $lengthProgression = rand(7, 13);
-        $stepProgression = rand(1, 10);
-        $startProgression = rand(1, 100);
+        $lengthProgression = random_int(7, 13);
+        $stepProgression = random_int(1, 10);
+        $startProgression = random_int(1, 100);
         $progression = getProgression($lengthProgression, $stepProgression, $startProgression);
-        $randomElement = rand(1, $lengthProgression);
+        $randomElement = random_int(1, $lengthProgression);
         $correctAnswer = $progression[$randomElement - 1];
         $progression[$randomElement - 1] = '..';
 

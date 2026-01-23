@@ -16,7 +16,7 @@ function launchGameEven(): void
     $namePlayer = getName();
     line('Answer "yes" if the number is even, otherwise answer "no".');
     for ($i = 0; $i < $roundNumbers; $i++) {
-        $randomNumber = rand(1, 100);
+        $randomNumber = random_int(1, 100);
         $correctAnswer = isEval($randomNumber) ? 'yes' : 'no';
 
         if (!getCorrectAnswer($randomNumber, $correctAnswer)) {

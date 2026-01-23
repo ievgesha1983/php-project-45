@@ -28,7 +28,7 @@ function getRandomNumbers(int $num, int $min = 1, int $max = 100): array
 {
     $result = [];
     for ($i = 0; $i < $num; $i++) {
-        $result[] = rand($min, $max);
+        $result[] = random_int($min, $max);
     }
     return $result;
 }
