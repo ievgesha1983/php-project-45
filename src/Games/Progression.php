@@ -5,7 +5,6 @@ namespace BrainGames\Games;
 use function cli\line;
 use function BrainGames\getName;
 use function BrainGames\getCorrectAnswer;
-use function BrainGames\getRandomNumbers;
 
 function getProgression(int $length = 10, int $step = 1, int $start = 1): array
 {
