@@ -8,7 +8,7 @@ use function BrainGames\getCorrectAnswer;
 
 use const BrainGames\ROUND_NUMBER;
 
-function getProgression(int $length = 10, int $step = 1, int $start = 1): array
+function getProgression(int $step, int $length = 10, int $start = 1): array
 {
     $progression = [];
     for ($i = $start, $max = $start + $length * $step; $i < $max; $i += $step) {
@@ -25,7 +25,7 @@ function launchGameProgression(): void
         $lengthProgression = random_int(7, 13);
         $stepProgression = random_int(1, 10);
         $startProgression = random_int(1, 100);
-        $progression = getProgression($lengthProgression, $stepProgression, $startProgression);
+        $progression = getProgression($stepProgression, $lengthProgression, $startProgression);
         $randomElement = random_int(1, $lengthProgression);
         $correctAnswer = $progression[$randomElement - 1];
         $progression[$randomElement - 1] = '..';
