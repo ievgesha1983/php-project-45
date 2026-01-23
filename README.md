@@ -20,3 +20,7 @@
 #### Brain-Progression Game. Play demo.
 
 [![asciicast](https://asciinema.org/a/TvLfnAxIiqH6pv1d.svg)](https://asciinema.org/a/TvLfnAxIiqH6pv1d)
+
+#### Brain-Prime Game. Play demo.
+
+[![asciicast](https://asciinema.org/a/u2TH4Nv1k9Y9uHeJ.svg)](https://asciinema.org/a/u2TH4Nv1k9Y9uHeJ)

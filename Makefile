@@ -28,6 +28,11 @@ brain-gcd:
 brain-progression:
 	./bin/brain-progression
 
+# запуск Brain Game "Prime"
+
+brain-prime:
+	./bin/brain-prime
+
 # проверка проекта Composer'ом
 
 validate:
