@@ -5,7 +5,5 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use function BrainGames\launchWelcomeForm;
-use function cli\line;
 
-line('Welcome to the Brain Game!');
 launchWelcomeForm();
