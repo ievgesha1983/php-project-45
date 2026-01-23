@@ -24,7 +24,7 @@ function getCorrectAnswer(string $question, string $correctAnswer): bool
     line("'{$answer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'.");
     return false;
 }
-function getRandomNumbers(int $num = 1, int $min = 1, int $max = 100): array
+function getRandomNumbers(int $num, int $min = 1, int $max = 100): array
 {
     $result = [];
     for ($i = 0; $i < $num; $i++) {
