@@ -1,12 +1,6 @@
 <?php
 
-namespace BrainGames\Games;
-
-use function cli\line;
-use function BrainGames\getName;
-use function BrainGames\getCorrectAnswer;
-
-use const BrainGames\ROUND_NUMBER;
+namespace BrainGames\Games\Prime;
 
 function isPrime(int $num): bool
 {
@@ -31,19 +25,10 @@ function isPrime(int $num): bool
     return true;
 }
 
-function launchGamePrime(): void
+function getDataForQuestion(array $questionSettings): array
 {
-    $roundNumbers = ROUND_NUMBER;
-    $namePlayer = getName();
-    line('Answer "yes" if given number is prime. Otherwise answer "no".');
-    for ($i = 0; $i < $roundNumbers; $i++) {
-        $randomNumber = random_int(1, 100);
-        $correctAnswer = isPrime($randomNumber) ? 'yes' : 'no';
+    $randomNumber = (string) random_int($questionSettings['num']['min'], $questionSettings['num']['max']);
+    $correctAnswer = isPrime($randomNumber) ? 'yes' : 'no';
 
-        if (!getCorrectAnswer($randomNumber, $correctAnswer)) {
-            line("Let's try again, {$namePlayer}!");
-            return;
-        }
-    }
-    line("Congratulations, {$namePlayer}!");
+    return [$randomNumber, $correctAnswer];
 }

@@ -1,12 +1,6 @@
 <?php
 
-namespace BrainGames\Games;
-
-use function cli\line;
-use function BrainGames\getName;
-use function BrainGames\getCorrectAnswer;
-
-use const BrainGames\ROUND_NUMBER;
+namespace BrainGames\Games\Progression;
 
 function getProgression(int $step, int $length = 10, int $start = 1): array
 {
@@ -16,24 +10,15 @@ function getProgression(int $step, int $length = 10, int $start = 1): array
     }
     return $progression;
 }
-function launchGameProgression(): void
+function getDataForQuestion(array $questionSettings): array
 {
-    $roundNumbers = ROUND_NUMBER;
-    $namePlayer = getName();
-    line('What number is missing in the progression?');
-    for ($i = 0; $i < $roundNumbers; $i++) {
-        $lengthProgression = random_int(7, 13);
-        $stepProgression = random_int(1, 10);
-        $startProgression = random_int(1, 100);
+        $lengthProgression = random_int($questionSettings['length']['min'], $questionSettings['length']['max']);
+        $stepProgression = random_int($questionSettings['step']['min'], $questionSettings['step']['max']);
+        $startProgression = random_int($questionSettings['start']['min'], $questionSettings['start']['max']);
         $progression = getProgression($stepProgression, $lengthProgression, $startProgression);
         $randomElement = random_int(1, $lengthProgression);
-        $correctAnswer = $progression[$randomElement - 1];
+        $correctAnswer = (string) $progression[$randomElement - 1];
         $progression[$randomElement - 1] = '..';
 
-        if (!getCorrectAnswer(join(' ', $progression), $correctAnswer)) {
-            line("Let's try again, {$namePlayer}!");
-            return;
-        }
-    }
-    line("Congratulations, {$namePlayer}!");
+        return [join(' ', $progression), $correctAnswer];
 }

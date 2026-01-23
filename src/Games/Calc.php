@@ -1,12 +1,6 @@
 <?php
 
-namespace BrainGames\Games;
-
-use function cli\line;
-use function BrainGames\getName;
-use function BrainGames\getCorrectAnswer;
-
-use const BrainGames\ROUND_NUMBER;
+namespace BrainGames\Games\Calc;
 
 function getRandomSing(array $sings): string
 {
@@ -32,22 +26,13 @@ function getResultOfExpression(int $arg1, int $arg2, string $sing): ?int
 
     return $answer;
 }
-function launchGameCalc(): void
+function getDataForQuestion(array $questionSettings): array
 {
-    $roundNumbers = ROUND_NUMBER;
-    $namePlayer = getName();
-    line('What is the result of the expression?');
-    for ($i = 0; $i < $roundNumbers; $i++) {
-        $num1 = random_int(1, 100);
-        $num2 = random_int(1, 100);
-        $sing = getRandomSing(['+', '-', '*']);
-        $expression = "{$num1} {$sing} {$num2}";
-        $correctAnswer = getResultOfExpression($num1, $num2, $sing) ?? 'Errors';
+    $num1 = random_int($questionSettings['nums']['min'], $questionSettings['nums']['max']);
+    $num2 = random_int($questionSettings['nums']['min'], $questionSettings['nums']['max']);
+    $sing = getRandomSing($questionSettings['sings']);
+    $expression = "{$num1} {$sing} {$num2}";
+    $correctAnswer = (string) (getResultOfExpression($num1, $num2, $sing) ?? 'Errors');
 
-        if (!getCorrectAnswer($expression, $correctAnswer)) {
-            line("Let's try again, {$namePlayer}!");
-            return;
-        }
-    }
-    line("Congratulations, {$namePlayer}!");
+    return [$expression, $correctAnswer];
 }
