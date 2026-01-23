@@ -8,7 +8,9 @@ use function cli\prompt;
 function launchGame(array $options): void
 {
     $roundNumbers = $options["roundsNumbers"];
-    $namePlayer = getName();
+    line('Welcome to the Brain Games!');
+    $namePlayer = prompt('May I have your name?');
+    line("Hello, %s!", $namePlayer);
     line($options["question"]);
 
     for ($i = 0; $i < $roundNumbers; $i++) {
@@ -20,14 +22,6 @@ function launchGame(array $options): void
         }
     }
     line("Congratulations, {$namePlayer}!");
-}
-
-function getName(): string
-{
-    line('Welcome to the Brain Games!');
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
-    return $name;
 }
 
 function getCorrectAnswer(string $question, string $correctAnswer): bool

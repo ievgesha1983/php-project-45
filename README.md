@@ -14,9 +14,25 @@
 * Progression Game. What number is missing in the progression?
 * Prime Game. Is it a prime number?
 
+### Prerequisites
+* Linux, Macos, WSL
+* PHP >=8.2
+* Git
+* Make
+* PHP Command Line Tools
+
 #### Install Brain-Games.
 
 [![asciicast](https://asciinema.org/a/N7WwJiDBb4VkaBO8.svg)](https://asciinema.org/a/N7WwJiDBb4VkaBO8)
+
+##### To install:
+```
+git clone https://github.com/ievgesha1983/php-project-45.git`
+cd php-project-45
+
+make install
+```
+
 
 #### Brain-Even Game. Play demo.
 
