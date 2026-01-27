@@ -2,6 +2,8 @@
 
 namespace BrainGames\Games\Progression;
 
+use function BrainGames\Engine\useShell;
+
 const GAME_OPTIONS = [
     "function" => "BrainGames\Games\Progression\getDataForQuestion",
     "question" => "What number is missing in the progression?",
@@ -12,6 +14,11 @@ const GAME_OPTIONS = [
         "length" => ["min" => 7, "max" => 13]
     ]
 ];
+
+function run(): void
+{
+    useShell(GAME_OPTIONS);
+}
 
 function getDataForQuestion(array $questionSettings): array
 {

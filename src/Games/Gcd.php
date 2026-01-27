@@ -2,6 +2,8 @@
 
 namespace BrainGames\Games\Gcd;
 
+use function BrainGames\Engine\useShell;
+
 const GAME_OPTIONS = [
     "function" => "BrainGames\Games\Gcd\getDataForQuestion",
     "question" => "Find the greatest common divisor of given numbers.",
@@ -10,6 +12,11 @@ const GAME_OPTIONS = [
         "nums" => ["min" => 1, "max" => 100]
     ]
 ];
+
+function run(): void
+{
+    useShell(GAME_OPTIONS);
+}
 
 function getDataForQuestion(array $questionSettings): array
 {

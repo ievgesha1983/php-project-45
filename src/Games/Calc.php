@@ -2,6 +2,8 @@
 
 namespace BrainGames\Games\Calc;
 
+use function BrainGames\Engine\useShell;
+
 const GAME_OPTIONS = [
     "function" => "BrainGames\Games\Calc\getDataForQuestion",
     "question" => "What is the result of the expression?",
@@ -11,6 +13,11 @@ const GAME_OPTIONS = [
         "sings" => ["+", "-", "*"]
     ]
 ];
+
+function run(): void
+{
+    useShell(GAME_OPTIONS);
+}
 
 function getDataForQuestion(array $questionSettings): array
 {

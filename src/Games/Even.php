@@ -2,6 +2,8 @@
 
 namespace BrainGames\Games\Even;
 
+use function BrainGames\Engine\useShell;
+
 const GAME_OPTIONS = [
     "function" => "BrainGames\Games\Even\getDataForQuestion",
     "question" => 'Answer "yes" if the number is even, otherwise answer "no".',
@@ -10,6 +12,11 @@ const GAME_OPTIONS = [
         "num" => ["min" => 1, "max" => 100]
     ]
 ];
+
+function run(): void
+{
+    useShell(GAME_OPTIONS);
+}
 
 function getDataForQuestion(array $questionSettings): array
 {
