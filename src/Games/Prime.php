@@ -2,6 +2,15 @@
 
 namespace BrainGames\Games\Prime;
 
+function getDataForQuestion(array $questionSettings): array
+{
+    $randomNumber = random_int($questionSettings['num']['min'], $questionSettings['num']['max']);
+    $correctAnswer = isPrime($randomNumber) ? 'yes' : 'no';
+    $randomNumber = (string) $randomNumber;
+
+    return [$randomNumber, $correctAnswer];
+}
+
 function isPrime(int $num): bool
 {
     if ($num < 2) {
@@ -23,13 +32,4 @@ function isPrime(int $num): bool
     }
 
     return true;
-}
-
-function getDataForQuestion(array $questionSettings): array
-{
-    $randomNumber = random_int($questionSettings['num']['min'], $questionSettings['num']['max']);
-    $correctAnswer = isPrime($randomNumber) ? 'yes' : 'no';
-    $randomNumber = (string) $randomNumber;
-
-    return [$randomNumber, $correctAnswer];
 }
