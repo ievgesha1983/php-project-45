@@ -8,7 +8,7 @@ function getDataForQuestion(array $questionSettings): array
     $num2 = random_int($questionSettings['nums']['min'], $questionSettings['nums']['max']);
     $sing = getRandomSing($questionSettings['sings']);
     $expression = "{$num1} {$sing} {$num2}";
-    $correctAnswer = (string) (calculate($num1, $num2, $sing) ?? 'Errors');
+    $correctAnswer = (string) (calculate($num1, $num2, $sing));
 
     return [$expression, $correctAnswer];
 }
