@@ -52,5 +52,9 @@ const GAMES_OPTIONS = [
 
 function play(string $gameName): void
 {
-    launchGame(GAMES_OPTIONS[$gameName]);
+    try {
+        launchGame(GAMES_OPTIONS[$gameName]);
+    } catch (\InvalidArgumentException $e) {
+        echo "Sorry! We have error: '{$e->getMessage()}'" . PHP_EOL;
+    }
 }

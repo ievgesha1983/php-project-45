@@ -18,7 +18,7 @@ function getRandomSing(array $sings): string
     return $sings[array_rand($sings)];
 }
 
-function calculate(int $arg1, int $arg2, string $sing): ?int
+function calculate(int $arg1, int $arg2, string $sing): int
 {
     switch ($sing) {
         case '+':
@@ -31,7 +31,7 @@ function calculate(int $arg1, int $arg2, string $sing): ?int
             $answer = $arg1 * $arg2;
             break;
         default:
-            exit;
+            throw new \InvalidArgumentException('Invalid sing: ' . $sing);
     }
 
     return $answer;
