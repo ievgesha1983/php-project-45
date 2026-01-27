@@ -5,7 +5,7 @@ namespace BrainGames\Engine;
 use function cli\line;
 use function cli\prompt;
 
-function useShell(array $options): void
+function launchGame(array $options): void
 {
     $roundNumbers = $options["roundsNumbers"];
     line('Welcome to the Brain Games!');

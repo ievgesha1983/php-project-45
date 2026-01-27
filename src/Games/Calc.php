@@ -2,7 +2,7 @@
 
 namespace BrainGames\Games\Calc;
 
-use function BrainGames\Engine\useShell;
+use function BrainGames\Engine\launchGame;
 
 const GAME_OPTIONS = [
     "function" => "BrainGames\Games\Calc\getDataForQuestion",
@@ -16,7 +16,7 @@ const GAME_OPTIONS = [
 
 function run(): void
 {
-    useShell(GAME_OPTIONS);
+    launchGame(GAME_OPTIONS);
 }
 
 function getDataForQuestion(array $questionSettings): array
