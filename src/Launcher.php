@@ -6,6 +6,7 @@ use function BrainGames\Engine\launchGame;
 
 const GAMES_OPTIONS = [
     "calc" => [
+        "function" => "BrainGames\Games\Calc\getDataForQuestion",
         "question" => "What is the result of the expression?",
         "roundsNumbers" => 3,
         "questionSettings" => [
@@ -14,6 +15,7 @@ const GAMES_OPTIONS = [
         ]
     ],
     "even" => [
+        "function" => "BrainGames\Games\Even\getDataForQuestion",
         "question" => 'Answer "yes" if the number is even, otherwise answer "no".',
         "roundsNumbers" => 3,
         "questionSettings" => [
@@ -21,6 +23,7 @@ const GAMES_OPTIONS = [
         ]
     ],
     "gcd" => [
+        "function" => "BrainGames\Games\Gcd\getDataForQuestion",
         "question" => "Find the greatest common divisor of given numbers.",
         "roundsNumbers" => 3,
         "questionSettings" => [
@@ -28,6 +31,7 @@ const GAMES_OPTIONS = [
         ]
     ],
     "prime" => [
+        "function" => "BrainGames\Games\Prime\getDataForQuestion",
         "question" => '"Answer "yes" if given number is prime. Otherwise answer "no"."',
         "roundsNumbers" => 3,
         "questionSettings" => [
@@ -35,6 +39,7 @@ const GAMES_OPTIONS = [
         ]
     ],
     "progression" => [
+        "function" => "BrainGames\Games\Progression\getDataForQuestion",
         "question" => "What number is missing in the progression?",
         "roundsNumbers" => 3,
         "questionSettings" => [
@@ -45,10 +50,7 @@ const GAMES_OPTIONS = [
     ]
 ];
 
-function play(string $game): void
+function play(string $gameName): void
 {
-    $gameOptions = GAMES_OPTIONS[$game];
-    $game = ucfirst($game);
-    $gameOptions["function"] = "BrainGames\\Games\\{$game}\\getDataForQuestion";
-    launchGame($gameOptions);
+    launchGame(GAMES_OPTIONS[$gameName]);
 }
