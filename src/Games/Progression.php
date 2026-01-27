@@ -2,6 +2,17 @@
 
 namespace BrainGames\Games\Progression;
 
+const GAME_OPTIONS = [
+    "function" => "BrainGames\Games\Progression\getDataForQuestion",
+    "question" => "What number is missing in the progression?",
+    "roundsNumbers" => 3,
+    "questionSettings" => [
+        "start" => ["min" => 1, "max" => 100],
+        "step" => ["min" => 1, "max" => 10],
+        "length" => ["min" => 7, "max" => 13]
+    ]
+];
+
 function getDataForQuestion(array $questionSettings): array
 {
     $lengthProgression = random_int($questionSettings['length']['min'], $questionSettings['length']['max']);

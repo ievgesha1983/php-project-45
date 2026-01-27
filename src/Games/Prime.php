@@ -2,6 +2,15 @@
 
 namespace BrainGames\Games\Prime;
 
+const GAME_OPTIONS = [
+    "function" => "BrainGames\Games\Prime\getDataForQuestion",
+    "question" => '"Answer "yes" if given number is prime. Otherwise answer "no"."',
+    "roundsNumbers" => 3,
+    "questionSettings" => [
+        "num" => ["min" => 1, "max" => 100]
+    ]
+];
+
 function getDataForQuestion(array $questionSettings): array
 {
     $randomNumber = random_int($questionSettings['num']['min'], $questionSettings['num']['max']);

@@ -2,6 +2,15 @@
 
 namespace BrainGames\Games\Even;
 
+const GAME_OPTIONS = [
+    "function" => "BrainGames\Games\Even\getDataForQuestion",
+    "question" => 'Answer "yes" if the number is even, otherwise answer "no".',
+    "roundsNumbers" => 3,
+    "questionSettings" => [
+        "num" => ["min" => 1, "max" => 100]
+    ]
+];
+
 function getDataForQuestion(array $questionSettings): array
 {
     $min = $questionSettings["num"]["min"];

@@ -2,6 +2,16 @@
 
 namespace BrainGames\Games\Calc;
 
+const GAME_OPTIONS = [
+    "function" => "BrainGames\Games\Calc\getDataForQuestion",
+    "question" => "What is the result of the expression?",
+    "roundsNumbers" => 3,
+    "questionSettings" => [
+        "nums" => ["min" => 1, "max" => 100],
+        "sings" => ["+", "-", "*"]
+    ]
+];
+
 function getDataForQuestion(array $questionSettings): array
 {
     $num1 = random_int($questionSettings['nums']['min'], $questionSettings['nums']['max']);
