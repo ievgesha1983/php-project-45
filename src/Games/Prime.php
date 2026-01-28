@@ -5,9 +5,8 @@ namespace BrainGames\Games\Prime;
 use function BrainGames\Engine\launchGame;
 
 const GAME_OPTIONS = [
-    "function" => "BrainGames\Games\Prime\getDataForQuestion",
     "question" => '"Answer "yes" if given number is prime. Otherwise answer "no"."',
-    "roundsNumbers" => 3,
+    "roundsNumber" => 3,
     "questionSettings" => [
         "num" => ["min" => 1, "max" => 100]
     ]
@@ -15,16 +14,15 @@ const GAME_OPTIONS = [
 
 function run(): void
 {
-    launchGame(GAME_OPTIONS);
-}
+    define('SETTINGS', GAME_OPTIONS["questionSettings"]);
+    $getDataForQuestion = function (): array {
+        $randomNumber = random_int(SETTINGS['num']['min'], SETTINGS['num']['max']);
+        $correctAnswer = isPrime($randomNumber) ? 'yes' : 'no';
+        $randomNumber = (string) $randomNumber;
 
-function getDataForQuestion(array $questionSettings): array
-{
-    $randomNumber = random_int($questionSettings['num']['min'], $questionSettings['num']['max']);
-    $correctAnswer = isPrime($randomNumber) ? 'yes' : 'no';
-    $randomNumber = (string) $randomNumber;
-
-    return [$randomNumber, $correctAnswer];
+        return [$randomNumber, $correctAnswer];
+    };
+    launchGame(GAME_OPTIONS["question"], GAME_OPTIONS["roundsNumber"], $getDataForQuestion);
 }
 
 function isPrime(int $num): bool

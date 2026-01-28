@@ -5,9 +5,8 @@ namespace BrainGames\Games\Calc;
 use function BrainGames\Engine\launchGame;
 
 const GAME_OPTIONS = [
-    "function" => "BrainGames\Games\Calc\getDataForQuestion",
     "question" => "What is the result of the expression?",
-    "roundsNumbers" => 3,
+    "roundsNumber" => 3,
     "questionSettings" => [
         "nums" => ["min" => 1, "max" => 100],
         "sings" => ["+", "-", "*"]
@@ -16,18 +15,17 @@ const GAME_OPTIONS = [
 
 function run(): void
 {
-    launchGame(GAME_OPTIONS);
-}
+    define('SETTINGS', GAME_OPTIONS["questionSettings"]);
+    $getDataForQuestion = function (): array {
+        $num1 = random_int(SETTINGS['nums']['min'], SETTINGS['nums']['max']);
+        $num2 = random_int(SETTINGS['nums']['min'], SETTINGS['nums']['max']);
+        $sing = getRandomSing(SETTINGS['sings']);
+        $expression = "{$num1} {$sing} {$num2}";
+        $correctAnswer = (string) (calculate($num1, $num2, $sing));
 
-function getDataForQuestion(array $questionSettings): array
-{
-    $num1 = random_int($questionSettings['nums']['min'], $questionSettings['nums']['max']);
-    $num2 = random_int($questionSettings['nums']['min'], $questionSettings['nums']['max']);
-    $sing = getRandomSing($questionSettings['sings']);
-    $expression = "{$num1} {$sing} {$num2}";
-    $correctAnswer = (string) (calculate($num1, $num2, $sing));
-
-    return [$expression, $correctAnswer];
+        return [$expression, $correctAnswer];
+    };
+    launchGame(GAME_OPTIONS["question"], GAME_OPTIONS["roundsNumber"], $getDataForQuestion);
 }
 
 function getRandomSing(array $sings): string

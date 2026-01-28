@@ -5,9 +5,8 @@ namespace BrainGames\Games\Progression;
 use function BrainGames\Engine\launchGame;
 
 const GAME_OPTIONS = [
-    "function" => "BrainGames\Games\Progression\getDataForQuestion",
     "question" => "What number is missing in the progression?",
-    "roundsNumbers" => 3,
+    "roundsNumber" => 3,
     "questionSettings" => [
         "start" => ["min" => 1, "max" => 100],
         "step" => ["min" => 1, "max" => 10],
@@ -17,22 +16,21 @@ const GAME_OPTIONS = [
 
 function run(): void
 {
-    launchGame(GAME_OPTIONS);
-}
+    define('SETTINGS', GAME_OPTIONS["questionSettings"]);
+    $getDataForQuestion = function (): array {
+        $lengthProgression = random_int(SETTINGS['length']['min'], SETTINGS['length']['max']);
+        $stepProgression = random_int(SETTINGS['step']['min'], SETTINGS['step']['max']);
+        $startProgression = random_int(SETTINGS['start']['min'], SETTINGS['start']['max']);
+        $progression = [];
+        $max = $startProgression + $lengthProgression * $stepProgression;
+        for ($i = $startProgression; $i < $max; $i += $stepProgression) {
+            $progression[] = $i;
+        }
+        $randomElement = random_int(1, $lengthProgression);
+        $correctAnswer = (string) $progression[$randomElement - 1];
+        $progression[$randomElement - 1] = '..';
 
-function getDataForQuestion(array $questionSettings): array
-{
-    $lengthProgression = random_int($questionSettings['length']['min'], $questionSettings['length']['max']);
-    $stepProgression = random_int($questionSettings['step']['min'], $questionSettings['step']['max']);
-    $startProgression = random_int($questionSettings['start']['min'], $questionSettings['start']['max']);
-    $progression = [];
-    $max = $startProgression + $lengthProgression * $stepProgression;
-    for ($i = $startProgression; $i < $max; $i += $stepProgression) {
-        $progression[] = $i;
-    }
-    $randomElement = random_int(1, $lengthProgression);
-    $correctAnswer = (string) $progression[$randomElement - 1];
-    $progression[$randomElement - 1] = '..';
-
-    return [join(' ', $progression), $correctAnswer];
+        return [join(' ', $progression), $correctAnswer];
+    };
+    launchGame(GAME_OPTIONS["question"], GAME_OPTIONS["roundsNumber"], $getDataForQuestion);
 }

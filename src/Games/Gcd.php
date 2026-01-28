@@ -5,9 +5,8 @@ namespace BrainGames\Games\Gcd;
 use function BrainGames\Engine\launchGame;
 
 const GAME_OPTIONS = [
-    "function" => "BrainGames\Games\Gcd\getDataForQuestion",
     "question" => "Find the greatest common divisor of given numbers.",
-    "roundsNumbers" => 3,
+    "roundsNumber" => 3,
     "questionSettings" => [
         "nums" => ["min" => 1, "max" => 100]
     ]
@@ -15,15 +14,14 @@ const GAME_OPTIONS = [
 
 function run(): void
 {
-    launchGame(GAME_OPTIONS);
-}
-
-function getDataForQuestion(array $questionSettings): array
-{
-        $num1 = random_int($questionSettings['nums']['min'], $questionSettings['nums']['max']);
-        $num2 = random_int($questionSettings['nums']['min'], $questionSettings['nums']['max']);
+    define('SETTINGS', GAME_OPTIONS["questionSettings"]);
+    $getDataForQuestion = function (): array {
+        $num1 = random_int(SETTINGS['nums']['min'], SETTINGS['nums']['max']);
+        $num2 = random_int(SETTINGS['nums']['min'], SETTINGS['nums']['max']);
         $gcd = (string) getGcd($num1, $num2);
         return ["{$num1} {$num2}", $gcd];
+    };
+    launchGame(GAME_OPTIONS["question"], GAME_OPTIONS["roundsNumber"], $getDataForQuestion);
 }
 
 function getGcd(int $num1, int $num2): int
