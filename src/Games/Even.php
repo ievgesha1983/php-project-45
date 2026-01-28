@@ -4,26 +4,21 @@ namespace BrainGames\Games\Even;
 
 use function BrainGames\Engine\launchGame;
 
-const GAME_OPTIONS = [
-    "question" => 'Answer "yes" if the number is even, otherwise answer "no".',
-    "roundsNumber" => 3,
-    "questionSettings" => [
-        "num" => ["min" => 1, "max" => 100]
-    ]
-];
+const QUESTION = 'Answer "yes" if the number is even, otherwise answer "no".';
+const ROUNDS_NUMBER = 3;
+const RANDOM_NUMBER = ['min' => 1, 'max' => 100];
 
 function run(): void
 {
-    define('SETTINGS', GAME_OPTIONS["questionSettings"]);
     $getDataForQuestion = function (): array {
-        $min = SETTINGS["num"]["min"];
-        $max = SETTINGS["num"]["max"];
+        $min = RANDOM_NUMBER['min'];
+        $max = RANDOM_NUMBER['max'];
         $randomNumber = random_int($min, $max);
         $correctAnswer = isEval($randomNumber) ? 'yes' : 'no';
         $randomNumber = (string) $randomNumber;
         return [$randomNumber, $correctAnswer];
     };
-    launchGame(GAME_OPTIONS["question"], GAME_OPTIONS["roundsNumber"], $getDataForQuestion);
+    launchGame(QUESTION, ROUNDS_NUMBER, $getDataForQuestion);
 }
 
 function isEval(int $number): bool

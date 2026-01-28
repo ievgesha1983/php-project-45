@@ -4,23 +4,18 @@ namespace BrainGames\Games\Progression;
 
 use function BrainGames\Engine\launchGame;
 
-const GAME_OPTIONS = [
-    "question" => "What number is missing in the progression?",
-    "roundsNumber" => 3,
-    "questionSettings" => [
-        "start" => ["min" => 1, "max" => 100],
-        "step" => ["min" => 1, "max" => 10],
-        "length" => ["min" => 7, "max" => 13]
-    ]
-];
+const QUESTION = 'What number is missing in the progression?';
+const ROUNDS_NUMBER = 3;
+const PROGRESSION_LENGTH = ['min' => 7, 'max' => 13];
+const PROGRESSION_START = ['min' => 1, 'max' => 100];
+const PROGRESSION_STEP = ['min' => 1, 'max' => 10];
 
 function run(): void
 {
-    define('SETTINGS', GAME_OPTIONS["questionSettings"]);
     $getDataForQuestion = function (): array {
-        $lengthProgression = random_int(SETTINGS['length']['min'], SETTINGS['length']['max']);
-        $stepProgression = random_int(SETTINGS['step']['min'], SETTINGS['step']['max']);
-        $startProgression = random_int(SETTINGS['start']['min'], SETTINGS['start']['max']);
+        $lengthProgression = random_int(PROGRESSION_LENGTH['min'], PROGRESSION_LENGTH['max']);
+        $stepProgression = random_int(PROGRESSION_STEP['min'], PROGRESSION_STEP['max']);
+        $startProgression = random_int(PROGRESSION_START['min'], PROGRESSION_START['max']);
         $progression = [];
         $max = $startProgression + $lengthProgression * $stepProgression;
         for ($i = $startProgression; $i < $max; $i += $stepProgression) {
@@ -32,5 +27,5 @@ function run(): void
 
         return [join(' ', $progression), $correctAnswer];
     };
-    launchGame(GAME_OPTIONS["question"], GAME_OPTIONS["roundsNumber"], $getDataForQuestion);
+    launchGame(QUESTION, ROUNDS_NUMBER, $getDataForQuestion);
 }
