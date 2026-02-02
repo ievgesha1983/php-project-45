@@ -3,6 +3,16 @@
 install:
 	composer install
 
+# проверка проекта Composer'ом
+
+validate:
+	composer validate
+
+# проверка проекта CodeSniffer'ом
+
+lint:
+	composer exec --verbose phpcs -- --standard=PSR12 src bin
+
 # запуск Brain Games
 
 brain-games:
@@ -32,12 +42,3 @@ brain-progression:
 
 brain-prime:
 	./bin/brain-prime
-
-# проверка проекта Composer'ом
-
-validate:
-	composer validate
-
-# подключение CodeSniffer
-lint:
-	composer exec --verbose phpcs -- --standard=PSR12 src bin
